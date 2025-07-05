@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-# Install Chrome dependencies
+# Install Chrome dependencies and Japanese fonts
 RUN apk add --no-cache \
     chromium \
     nss \
@@ -8,10 +8,18 @@ RUN apk add --no-cache \
     freetype-dev \
     harfbuzz \
     ca-certificates \
-    ttf-freefont
+    ttf-freefont \
+    font-noto-cjk \
+    font-noto-emoji \
+    wqy-zenhei \
+    font-adobe-source-han-sans \
+    font-adobe-source-han-serif \
+    fontconfig \
+    && fc-cache -f
 
-# Set Chrome path
+# Set Chrome path and font configuration
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+ENV FONTCONFIG_PATH=/etc/fonts
 
 # Create app directory
 WORKDIR /app
