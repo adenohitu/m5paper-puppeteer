@@ -1,0 +1,30 @@
+{
+  "name": "m5paper-puppeteer",
+  "version": "1.0.0",
+  "description": "Puppeteer screenshot API with Hono.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "puppeteer",
+    "screenshot",
+    "hono",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "hono": "^4.4.0",
+    "puppeteer": "^22.0.0",
+    "@hono/node-server": "^1.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.0",
+    "tsx": "^4.7.0"
+  }
+}
