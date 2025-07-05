@@ -12,8 +12,6 @@ RUN apk add --no-cache \
     font-noto-cjk \
     font-noto-emoji \
     wqy-zenhei \
-    font-adobe-source-han-sans \
-    font-adobe-source-han-serif \
     fontconfig \
     && fc-cache -f
 
