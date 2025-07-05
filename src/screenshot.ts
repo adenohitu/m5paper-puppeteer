@@ -44,18 +44,16 @@ export class ScreenshotService {
       });
 
       // Take screenshot
-      const screenshotOptions: any = {
+      const screenshotOptions = {
         type: options.format || "png",
         fullPage: options.fullPage || false,
+        encoding: 'binary' as const,
+        ...(options.format === "jpeg" && { quality: options.quality || 90 }),
       };
-
-      if (options.format === "jpeg") {
-        screenshotOptions.quality = options.quality || 90;
-      }
 
       const screenshot = await page.screenshot(screenshotOptions);
 
-      return screenshot as Buffer;
+      return Buffer.isBuffer(screenshot) ? screenshot : Buffer.from(screenshot, 'binary');
     } finally {
       await page.close();
     }
