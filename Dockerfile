@@ -1,18 +1,20 @@
 FROM node:18-alpine
 
 # Install Chrome dependencies and Japanese fonts
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
     chromium \
     nss \
     freetype \
     freetype-dev \
     harfbuzz \
     ca-certificates \
-    ttf-freefont \
+    ttf-liberation \
     font-noto-cjk \
     font-noto-emoji \
-    wqy-zenhei \
+    font-wqy-zenhei \
     fontconfig \
+    udev \
+    ttf-dejavu \
     && fc-cache -f
 
 # Set Chrome path and font configuration
